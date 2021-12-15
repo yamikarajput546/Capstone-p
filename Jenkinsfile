@@ -26,6 +26,9 @@ pipeline {
 
    }
    stage("packaging"){
+      when {
+        branch 'prod'
+            }
            
          steps
             {

@@ -15,14 +15,7 @@ pipeline {
                 sh 'mvn clean'
             }
        }
-       stage("test"){
-           when {
-        branch 'test'
-            }
-         steps
-            {
-                sh 'mvn clean test'
-            }
+       
 
    }
    stage("packaging"){
@@ -32,7 +25,7 @@ pipeline {
            
          steps
             {
-                sh 'mvn package'
+                sh 'mvn package -Dskiptests'
             }
        }
    }

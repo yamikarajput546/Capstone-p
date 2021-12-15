@@ -1,9 +1,9 @@
 pipeline {
    agent any
-//    tools {
-//        maven 'maven'
-//        jdk 'jdk8'
-//    }
+   tools {
+       maven 'maven'
+          jdk 'Java'
+   }
   // environment {
     //  dockerhub=credentials('dockerhub')
  //  }
@@ -26,6 +26,9 @@ pipeline {
 
    }
    stage("packaging"){
+      when {
+        branch 'prod'
+            }
            
          steps
             {

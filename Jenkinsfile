@@ -5,9 +5,9 @@ pipeline {
        maven 'maven'
        jdk 'Java'
    }
-  // environment {
-    //  dockerhub=credentials('dockerhub')
- //  }
+  environment {
+     dockerhub=credentials('dockerhub')
+  }
    stages{
        stage("clean"){
       

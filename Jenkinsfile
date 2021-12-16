@@ -31,5 +31,21 @@ pipeline {
 
             }
        }
+      stage('deploy')
+         {
+//             when{
+//                 branch "prod"
+//                  }
+            steps{
+                script{
+                   kubernetesDeploy configs: '**/sts.yaml', kubeConfig: [path: ''], kubeconfigId: 'kubeconfig', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
+                }
+            }
+      
+      
+      
+      
+      
+      
    }
 }

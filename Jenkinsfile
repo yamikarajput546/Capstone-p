@@ -47,5 +47,16 @@ pipeline {
                 sh 'docker push yamikarajputd/capstone:1.01 '
             }
         }
+      
+      stage('Deploy App') {
+      steps {
+          when{
+                branch "prod"
+                }
+           
+        kubernetesDeploy configs: '', kubeConfig: [path: ''], kubeconfigId: 'kube', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
+             }
+      
+      
    }
 }

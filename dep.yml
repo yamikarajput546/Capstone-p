@@ -4,20 +4,32 @@ kind: Deployment
 metadata:
   labels:
     app: myweb
-  name: myweb
+  name: capstone
 spec:
   replicas: 1
   selector:
 
     matchLabels:
-      app: myweb
-  serviceName: "service1"
+      app: capstone
   template:
     metadata:
       labels:
-        app: myweb
+        app: capstone
     spec:
       containers:
         - image: yamikarajputd/capstone:1.01
           imagePullPolicy: IfNotPresent
           name: myweb
+          ports:
+            - containerPort: 8083
+          env:
+          - name: SQL_URL
+            value: "mysql-0.sql-headless"
+          - name: SQL_PORT
+            value: "3306"
+          - name: SQL_USR
+            value: "user"
+          - name: SQL_PW
+            value: "root@123"
+          - name: SQL_TABLE
+            value: "mydb"

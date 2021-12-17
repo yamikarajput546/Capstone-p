@@ -11,6 +11,7 @@ spec:
 
     matchLabels:
       app: myweb
+  serviceName: "service1"
   template:
     metadata:
       labels:

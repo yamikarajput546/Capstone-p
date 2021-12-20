@@ -17,6 +17,17 @@ pipeline {
             }
        }
 
+       stage("test"){
+          when{
+                branch "test"
+                }
+      
+         steps
+            {
+                sh 'mvn test'
+            }
+       }
+
   stage('pack')
         {
             when{

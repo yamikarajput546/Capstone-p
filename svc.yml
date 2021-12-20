@@ -15,5 +15,24 @@ spec:
   selector:
     app: capstone
 
+<<<<<<< HEAD
 
 
+=======
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sql
+  labels:
+    app: myweb
+
+
+spec:
+  ports:
+  - port: 3306
+    targetPort: 3306
+    protocol: TCP
+  selector:
+    app: sql
+>>>>>>> 6d4194feb725ada21c30b44ddd671a27e1f70be7

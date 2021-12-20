@@ -32,7 +32,7 @@ pipeline {
                 branch "prod"
                 }
             steps{
-                sh 'docker build -t capstone-img:1.02 .'
+                sh 'docker build -t capstone-img:1.01 .'
             }
         } 
         stage('pushing to dockerhub')
@@ -41,10 +41,10 @@ pipeline {
                 branch "prod"
                 }
             steps{
-                sh 'docker tag capstone-img:1.02 yamikarajputd/capstone:1.02 '
+                sh 'docker tag capstone-img:1.01 yamikarajputd/capstone:1.01 '
                 sh 'echo $dockerhub_PSW | docker login -u $dockerhub_USR --password-stdin'
 
-                sh 'docker push yamikarajputd/capstone:1.02 '
+                sh 'docker push yamikarajputd/capstone:1.01 '
             }
         }
       

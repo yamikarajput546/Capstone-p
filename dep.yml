@@ -8,7 +8,6 @@ metadata:
 spec:
   replicas: 1
   selector:
-
     matchLabels:
       app: capstone
   template:
@@ -18,13 +17,12 @@ spec:
     spec:
       containers:
         - image: yamikarajputd/capstone:1.01
-          imagePullPolicy: IfNotPresent
           name: myweb
           ports:
             - containerPort: 8083
           env:
           - name: SQL_URL
-            value: "mysql-0.sql-headless"
+            value: mysql-0.sql-headless.default.svc.cluster.local
           - name: SQL_PORT
             value: "3306"
           - name: SQL_USR
@@ -33,3 +31,4 @@ spec:
             value: "root@123"
           - name: SQL_TABLE
             value: "mydb"
+

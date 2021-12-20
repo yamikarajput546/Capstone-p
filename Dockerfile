@@ -12,7 +12,6 @@ FROM openjdk:18-jdk-alpine3.15
 
 WORKDIR /cap
 
-
 COPY --from=builder /capstone/target/StudentRegistration-0.0.1-SNAPSHOT.jar  .
 
 EXPOSE 8083

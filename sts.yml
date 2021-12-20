@@ -23,7 +23,7 @@ kind: StorageClass
 metadata:
   name: fast
   
-allowVolumeExpansion: true
+
 provisioner: k8s.io/minikube-hostpath
 reclaimPolicy: Delete
 
@@ -56,23 +56,23 @@ spec:
           - name: MYSQL_ROOT_PASSWORD
             value: "root@123"
           - name: MYSQL_DATABASE
-            value: "mydb"
+            value: "mydb" 
           - name: MYSQL_USER
             value: "user"
           - name: MYSQL_PASSWORD
             value: "root@123"
-  #         volumeMounts:
-  #         - name: sql-claim
-  #           mountPath: 
-  # volumeClaimTemplates:
-  # - metadata:
-  #     name: sql-claim
-  #   spec:
-  #     accessModes: [ReadWriteOnce]
-  #     storageClassName: fast
-  #     resources:
-  #       requests:
-  #         storage: 1Gi
+          volumeMounts:
+          - name: sql-claim
+            mountPath: /var/lib/mydb
+  volumeClaimTemplates:
+  - metadata:
+      name: sql-claim
+    spec:
+      accessModes: [ReadWriteOnce]
+      storageClassName: fast
+      resources:
+        requests:
+          storage: 1Gi
 
 
 

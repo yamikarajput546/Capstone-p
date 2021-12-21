@@ -67,9 +67,11 @@ pipeline {
           when{
                  branch "prod"
                  }
+         stepd{
            
         kubernetesDeploy configs: '**/dep.yml', kubeConfig: [path: ''], kubeconfigId: 'kube', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
              }
+      }
       
       
                 

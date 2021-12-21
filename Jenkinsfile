@@ -62,16 +62,15 @@ pipeline {
         }
       
       stage('DeployApp') {
-      steps {
-          
-          when{
+           when{
                  branch "prod"
                  }
-         stepd{
+      steps {
+       
            
         kubernetesDeploy configs: '**/dep.yml', kubeConfig: [path: ''], kubeconfigId: 'kube', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
              }
-      }
+     
       
       
                 

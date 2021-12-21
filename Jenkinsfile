@@ -34,7 +34,7 @@ pipeline {
                 branch "prod"
                 }
             steps{
-                sh 'mvn package -DskipTests'
+                sh 'mvn package'
             }
         }
        stage('build image')

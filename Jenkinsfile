@@ -16,7 +16,7 @@ pipeline {
                 sh 'mvn clean'
             }
        }
-
+      
        stage("test"){
           when{
                 branch "test"
@@ -34,7 +34,7 @@ pipeline {
                 branch "prod"
                 }
             steps{
-                sh 'mvn package -DskipTests'
+                sh 'mvn package'
             }
         }
        stage('build image')
